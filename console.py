@@ -1,4 +1,16 @@
-import sys
+import sys, getpass
+
+from auth import AuthBankAccount
+
+class AuthBankAccountConsole:
+
+    @staticmethod
+    def is_auth():
+        account_number_typed = str(raw_input('Digite sua conta: '))
+        password_typed = getpass.getpass('Digite sua senha: ')
+
+        AuthBankAccount.authenticate(account_number_typed, password_typed)
+
 
 class CashMachineConsole:
 

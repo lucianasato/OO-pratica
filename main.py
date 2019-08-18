@@ -1,4 +1,4 @@
-from console import CashMachineConsole
+from console import CashMachineConsole, AuthBankAccountConsole
 from utils import clear, header
 import sys
 
@@ -6,7 +6,8 @@ def main():
     clear()
     header()
 
-    CashMachineConsole.call_operation()
+    AuthBankAccountConsole.is_auth()
+    #CashMachineConsole.call_operation()
 
 
 if __name__ == '__main__':
