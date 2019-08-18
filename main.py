@@ -6,9 +6,13 @@ def main():
     clear()
     header()
 
-    AuthBankAccountConsole.is_auth()
-    #CashMachineConsole.call_operation()
+    if AuthBankAccountConsole.is_auth():
+        clear()
+        header()
 
+        CashMachineConsole.call_operation()
+    else:
+        print('Conta invalida!!!')
 
 if __name__ == '__main__':
     while True:

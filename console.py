@@ -9,7 +9,7 @@ class AuthBankAccountConsole:
         account_number_typed = str(raw_input('Digite sua conta: '))
         password_typed = getpass.getpass('Digite sua senha: ')
 
-        AuthBankAccount.authenticate(account_number_typed, password_typed)
+        return AuthBankAccount.authenticate(account_number_typed, password_typed)
 
 
 class CashMachineConsole:
@@ -40,6 +40,7 @@ class ShowBalanceOperation:
 
     @staticmethod
     def do_operation():
+        print(AuthBankAccount.bank_account_authenticated)
         print('Mostrar Saldo')
 
 
