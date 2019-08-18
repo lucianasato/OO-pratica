@@ -1,13 +1,16 @@
 from console import CashMachineConsole
 from utils import clear, header
+import sys
 
 def main():
     clear()
     header()
+
     CashMachineConsole.call_operation()
+
 
 if __name__ == '__main__':
     while True:
         main()
 
-        input("Pressione <ENTER> para continuar...")
+        input('Pressione <ENTER> para continuar...')
