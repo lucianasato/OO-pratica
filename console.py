@@ -23,19 +23,27 @@ class CashMachineConsole:
     def __get_menu_options_type():
         print("%s - Saldo" % CashMachineOperation.OPERATION_SHOW_BALANCE)
         print("%s - Saque" % CashMachineOperation.OPERATION_WITHDRAW)
+        bank_account = AuthBankAccount.bank_account_authenticated
+        if bank_account:
+            print("%s - Inserir cedulas" % CashMachineOperation.OPERATION_INSERT_MONEY_BILL)
         return input('Escolha uma das opcoes acima: ')
 
 
 class CashMachineOperation:
     OPERATION_SHOW_BALANCE = '1'
     OPERATION_WITHDRAW = '2'
+    OPERATION_INSERT_MONEY_BILL = '10'
 
     @staticmethod
     def do_operation(option):
+        bank_account = AuthBankAccount.bank_account_authenticated
+
         if option == CashMachineOperation.OPERATION_SHOW_BALANCE:
             ShowBalanceOperation.do_operation()
         elif option == CashMachineOperation.OPERATION_WITHDRAW:
             WithDrawOperation.do_operation()
+        elif option == CashMachineOperation.OPERATION_INSERT_MONEY_BILL and bank_account.admin:
+            InsertMoneyBillOperation.do_operation()
 
 
 class ShowBalanceOperation:
@@ -51,3 +59,11 @@ class WithDrawOperation:
     @staticmethod
     def do_operation():
         print('Sacar dinheiro')
+
+
+class InsertMoneyBillOperation:
+
+    @staticmethod
+    def do_operation():
+        ammount_typed = input('Digite a quantidade de cedulas: ')
+        money_bill_typed = input('Digite a cedula a ser incluida: ')
