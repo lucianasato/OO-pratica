@@ -6,7 +6,7 @@ class AuthBankAccountConsole:
 
     @staticmethod
     def is_auth():
-        account_number_typed = str(raw_input('Digite sua conta: '))
+        account_number_typed = str(input('Digite sua conta: '))
         password_typed = getpass.getpass('Digite sua senha: ')
 
         return AuthBankAccount.authenticate(account_number_typed, password_typed)
@@ -21,18 +21,20 @@ class CashMachineConsole:
 
     @staticmethod
     def __get_menu_options_type():
-        print("1 - Saldo")
-        print("2 - Saque")
+        print("%s - Saldo" % CashMachineOperation.OPERATION_SHOW_BALANCE)
+        print("%s - Saque" % CashMachineOperation.OPERATION_WITHDRAW)
         return input('Escolha uma das opcoes acima: ')
 
 
 class CashMachineOperation:
+    OPERATION_SHOW_BALANCE = '1'
+    OPERATION_WITHDRAW = '2'
 
     @staticmethod
     def do_operation(option):
-        if option == 1:
+        if option == CashMachineOperation.OPERATION_SHOW_BALANCE:
             ShowBalanceOperation.do_operation()
-        elif option == 2:
+        elif option == CashMachineOperation.OPERATION_WITHDRAW:
             WithDrawOperation.do_operation()
 
 
