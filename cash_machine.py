@@ -12,6 +12,12 @@ class BankAccount:
     def check_account_password(self, account_password):
         return account_password == self.password
 
+class CashMachine:
+
+    def __init__(self, money_slips):
+        self.money_slips = money_slips
+        self.money_slips_user = {}
+        self.value_remaining = 0
 
 accounts_list = [
     BankAccount('0001', 'Fulano 1', '123', 100, False),
