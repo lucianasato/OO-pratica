@@ -12,6 +12,23 @@ class BankAccount:
     def check_account_password(self, account_password):
         return account_password == self.password
 
+    def balance_debit(self, value):
+        self.value -= value
+
+
+class CashMachineWithDraw:
+    @staticmethod
+    def withdraw(bank_account, value):
+        cash_machine = CashMachine({
+            '20': 5,
+            '50': 5,
+            '100': 5,
+        })
+        money_slips_user = cash_machine.withdraw(value)
+        if money_slips_user:
+            bank_account.balance_debit(value)
+        return cash_machine
+
 class CashMachine:
 
     def __init__(self, money_slips):
