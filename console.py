@@ -1,7 +1,7 @@
 import sys, getpass
 
 from auth import AuthBankAccount
-from cash_machine import CashMachineWithDraw
+from cash_machine import CashMachineWithDraw, CashMachineInsertMoneyBill
 
 class AuthBankAccountConsole:
 
@@ -75,5 +75,8 @@ class InsertMoneyBillOperation:
 
     @staticmethod
     def do_operation():
-        ammount_typed = input('Digite a quantidade de cedulas: ')
+        amount_typed = input('Digite a quantidade de cedulas: ')
         money_bill_typed = input('Digite a cedula a ser incluida: ')
+
+        cash_machine = CashMachineInsertMoneyBill.insert_money_bill(money_bill_typed, int(amount_typed))
+        print(cash_machine.money_slips)

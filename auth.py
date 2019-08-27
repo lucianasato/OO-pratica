@@ -10,7 +10,7 @@ class AuthBankAccount:
             if AuthBankAccount.__has_bank_account_valid(bank_account, account_number, password):
                 AuthBankAccount.bank_account_authenticated = bank_account
                 return bank_account
-            return False
+        return False
 
     @staticmethod
     def __has_bank_account_valid(bank_account, account_number, password):

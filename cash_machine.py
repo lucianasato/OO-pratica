@@ -15,6 +15,17 @@ class BankAccount:
     def balance_debit(self, value):
         self.value -= value
 
+class CashMachineInsertMoneyBill:
+
+    @staticmethod
+    def insert_money_bill(money_bill, amount):
+        cash_machine = CashMachine({
+            '20': 5,
+            '50': 5,
+            '100': 5,
+        })
+        cash_machine.money_slips[money_bill] += amount
+        return cash_machine
 
 class CashMachineWithDraw:
     @staticmethod
@@ -61,6 +72,6 @@ class CashMachine:
 
 accounts_list = [
     BankAccount('0001', 'Fulano 1', '123', 100, False),
-    BankAccount('0002-02', 'Fulano 2', '123456', 50, False),
-    BankAccount('1111-11', 'Fulano 3', '123456', 1000, True),
+    BankAccount('0002', 'Fulano 2', '123', 50, False),
+    BankAccount('1111', 'Fulano 3', '123', 1000, True),
 ]
